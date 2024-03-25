@@ -10,16 +10,16 @@ co3 = "#38576b"  # valor
 co4 = "#403d3d"   # letra
 
 # Criando a janela:
-janela = Tk () # Janela criada
-janela.title("")
-janela.geometry("310x300") # Tamanho da janela definido 
-janela.configure(background= co1) # Colocando um fundo branco na janela
+root = Tk () # janela criada
+root.title("")
+root.geometry("310x300") # Tamanho da janela definido 
+root.configure(background= co1) # Colocando um fundo branco na root
 
 
 # Frames: Dividindo a janela em duas partes: cima e baixo
-frame_upper = Frame(janela, width= 310, height=50, bg= co1, relief= "flat") # Definindo medidas, cores de fundo e linhas.
+frame_upper = Frame(root, width= 310, height=50, bg= co1, relief= "flat") # Definindo medidas, cores de fundo e linhas.
 frame_upper.grid(row=0, column=0, pady=1, padx=0, sticky=NSEW)
-frame_lower = Frame(janela, width= 310, height= 300, bg= co1, relief= "flat")
+frame_lower = Frame(root, width= 310, height= 300, bg= co1, relief= "flat")
 frame_lower.grid(row=1, column=0,pady=1, padx=0, sticky=NSEW)
 
 # Criando alguns rótulos e entrada dentro do frame superior que definirão o nome do app e também uma linha para estilizar a tela.
@@ -66,7 +66,7 @@ def verify():
         for widget in frame_cima.winfo_children():
             widget.destroy()
 
-            # Chamar nova janela
+            # Chamar nova root
             new_window()
             
     else:
@@ -85,4 +85,4 @@ def new_window():
     l_name = Label(frame_lower, text="Welcome " + credenciais[0], height=1,anchor=NE, font=('Ivy 15 '), bg=co1, fg=co4)
     l_name.place(x=5, y=105)
 
-janela.mainloop()
+root.mainloop()
